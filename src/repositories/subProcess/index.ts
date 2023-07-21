@@ -11,3 +11,29 @@ export async function newSubProcesses(processId: string, newSubProcesses: any) {
     data: subPrcesses,
   });
 }
+
+export async function getAllSubProcessFromProcess(processId: string) {
+  return await prisma.process.findMany({
+    where: {
+      mainProcessId: Number(processId),
+    },
+    orderBy: {
+      order: "asc",
+    },
+  });
+}
+
+export async function updateSubProcesses(updatedSubProcess: any) {
+  const update = updatedSubProcess.subProcess.map(async (sub: any) => {
+    return await prisma.process.update({
+      where: {
+        id: Number(sub.id),
+      },
+      data: {
+        name: sub.name,
+        order: sub.order,
+      },
+    });
+  });
+  return Promise.all(update);
+}

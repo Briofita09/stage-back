@@ -14,3 +14,13 @@ export async function newSubProcesses(
     newSubProcesses
   );
 }
+
+export async function getProcessesFromProcess(processId: string) {
+  const foundProcess = await processRepositorie.getProcess(processId);
+  if (!foundProcess) throw NotFoundProcess();
+  return await subProcessRepositorie.getAllSubProcessFromProcess(processId);
+}
+
+export async function updateSubProcess(subProcess: Array<any>) {
+  return await subProcessRepositorie.updateSubProcesses(subProcess);
+}
