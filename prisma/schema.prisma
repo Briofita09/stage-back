@@ -26,10 +26,23 @@ model Process {
   order         Int?
   mainProcessId Int?
   mainProcess   Process? @relation("SubProcesses", fields: [mainProcessId], references: [id])
-
+  edge          Edge?
 
   area          Area? @relation(fields: [areaId], references: [id])
   subProcess    Process[] @relation("SubProcesses")
 
+
   @@map("processes")
+}
+
+model Edge {
+  id            Int @id @default(autoincrement())
+  processId     Int @unique
+  source        String?
+  sourceHandle  String?
+  target        String?
+  targetHandle  String?
+  process       Process @relation(fields: [processId], references: [id])
+
+  @@map("edges")
 }
