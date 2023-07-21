@@ -20,3 +20,10 @@ export function NotFoundArea(): CustomError {
     status: 404,
   };
 }
+
+export function NotFoundProcess(): CustomError {
+  return {
+    message: "Nenhum processo foi encontrado para este ID",
+    status: 404,
+  };
+}

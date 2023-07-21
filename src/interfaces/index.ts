@@ -2,6 +2,10 @@ export interface Area {
   name: string;
 }
 
+export interface Process {
+  name: string;
+}
+
 export interface CustomError {
   message: string;
   status: number;
