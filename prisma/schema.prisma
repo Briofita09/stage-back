@@ -20,20 +20,16 @@ model Area {
 }
 
 model Process {
-  id          Int @id @default(autoincrement())
-  name        String @unique
-  areaId      Int
+  id            Int @id @default(autoincrement())
+  name          String
+  areaId        Int?
+  order         Int?
+  mainProcessId Int?
+  mainProcess   Process? @relation("SubProcesses", fields: [mainProcessId], references: [id])
 
-  area        Area @relation(fields: [areaId], references: [id])
 
-  SubProcesseses SubProcess[]
-}
+  area          Area? @relation(fields: [areaId], references: [id])
+  subProcess    Process[] @relation("SubProcesses")
 
-model SubProcess {
-  id          Int @id @default(autoincrement())
-  name        String
-  order       Int
-  processId   Int
-
-  process     Process @relation(fields: [processId], references: [id])
+  @@map("processes")
 }
