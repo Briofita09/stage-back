@@ -21,7 +21,7 @@ export async function getAllAreaProcess(areaId: string) {
 export async function getProcess(processId: string) {
   return await prisma.process.findFirst({
     where: {
-      id: Number(processId),
+      id: processId,
     },
   });
 }
@@ -29,7 +29,7 @@ export async function getProcess(processId: string) {
 export async function updateProcess(processId: string, process: Process) {
   return await prisma.process.update({
     where: {
-      id: Number(processId),
+      id: processId,
     },
     data: {
       name: process.name,
@@ -40,7 +40,7 @@ export async function updateProcess(processId: string, process: Process) {
 export async function deleteProcess(processId: string) {
   return await prisma.process.delete({
     where: {
-      id: Number(processId),
+      id: processId,
     },
   });
 }
