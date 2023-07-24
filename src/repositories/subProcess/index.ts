@@ -1,10 +1,11 @@
 import { prisma } from "../../database";
 
 export async function newSubProcesses(processId: string, newSubProcesses: any) {
+  console.log(newSubProcesses);
   const subPrcesses = newSubProcesses.subprocess.map((sub: any) => {
     return {
       ...sub,
-      mainProcessId: Number(processId),
+      mainProcessId: processId,
     };
   });
   return await prisma.process.createMany({
@@ -33,4 +34,12 @@ export async function updateSubProcesses(updatedSubProcess: any) {
     });
   });
   return Promise.all(update);
+}
+
+export async function deleteSubProcesses(processId: string) {
+  return await prisma.process.deleteMany({
+    where: {
+      mainProcessId: processId,
+    },
+  });
 }

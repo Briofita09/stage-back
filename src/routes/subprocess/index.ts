@@ -12,4 +12,7 @@ subProcessRouter.get(
 );
 
 subProcessRouter.put("/:subProcessId", subProcessController.updateSubProcess);
+
+subProcessRouter.delete("/:processId", subProcessController.deleteSubProcesses);
+
 export { subProcessRouter };

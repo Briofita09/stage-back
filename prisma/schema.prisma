@@ -25,8 +25,11 @@ model Process {
   areaId        Int?
   order         Int?
   mainProcessId String?
+  xCoord        String?
+  yCoord        String?
   mainProcess   Process? @relation("SubProcesses", fields: [mainProcessId], references: [id])
-  edge          Edge?
+  edge          Edge[]
+
 
   area          Area? @relation(fields: [areaId], references: [id])
   subProcess    Process[] @relation("SubProcesses")
@@ -37,7 +40,7 @@ model Process {
 
 model Edge {
   id            String @id @default(uuid())
-  processId     String @unique
+  processId     String 
   source        String?
   sourceHandle  String?
   target        String?

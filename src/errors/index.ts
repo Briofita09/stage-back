@@ -27,3 +27,10 @@ export function NotFoundProcess(): CustomError {
     status: 404,
   };
 }
+
+export function CanNotDeleteProcess(): CustomError {
+  return {
+    message: "Não é permitido apagar um processo null",
+    status: 401,
+  };
+}

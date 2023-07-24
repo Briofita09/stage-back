@@ -1,4 +1,4 @@
-import { NotFoundProcess } from "../../errors";
+import { CanNotDeleteProcess, NotFoundProcess } from "../../errors";
 
 import * as processRepositorie from "../../repositories/process";
 import * as subProcessRepositorie from "../../repositories/subProcess";
@@ -23,4 +23,9 @@ export async function getProcessesFromProcess(processId: string) {
 
 export async function updateSubProcess(subProcess: Array<any>) {
   return await subProcessRepositorie.updateSubProcesses(subProcess);
+}
+
+export async function deleteSubProcesses(processId: string) {
+  if (processId == "null") throw CanNotDeleteProcess();
+  return await subProcessRepositorie.deleteSubProcesses(processId);
 }

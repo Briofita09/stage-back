@@ -24,3 +24,9 @@ export async function updateSubProcess(req: Request, res: Response) {
     .status(200)
     .json({ message: "Subprocesso atualizado com sucesso" });
 }
+
+export async function deleteSubProcesses(req: Request, res: Response) {
+  const processId = req.params.processId;
+  await subProcessesService.deleteSubProcesses(processId);
+  return res.status(204).send();
+}
