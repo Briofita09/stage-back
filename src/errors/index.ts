@@ -34,3 +34,10 @@ export function CanNotDeleteProcess(): CustomError {
     status: 401,
   };
 }
+
+export function NotFoundExternalLink(): CustomError {
+  return {
+    message: "Nenhum link externo foi encontrado para este ID",
+    status: 404,
+  };
+}

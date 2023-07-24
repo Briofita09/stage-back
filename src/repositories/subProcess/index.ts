@@ -1,7 +1,6 @@
 import { prisma } from "../../database";
 
 export async function newSubProcesses(processId: string, newSubProcesses: any) {
-  console.log(newSubProcesses);
   const subPrcesses = newSubProcesses.subprocess.map((sub: any) => {
     return {
       ...sub,

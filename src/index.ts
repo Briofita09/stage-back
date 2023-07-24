@@ -7,6 +7,7 @@ import handleError from "./middlewares/errorHandler";
 import { processRouter } from "./routes/process";
 import { subProcessRouter } from "./routes/subprocess";
 import { edgeRouter } from "./routes/edges";
+import { externalLinkRouter } from "./routes/externalLink";
 const app = express();
 
 app
@@ -16,6 +17,7 @@ app
   .use("/process", processRouter)
   .use("/subprocess", subProcessRouter)
   .use("/edge", edgeRouter)
+  .use("/link", externalLinkRouter)
   .use(handleError);
 
 export { app };

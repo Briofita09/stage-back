@@ -15,7 +15,6 @@ export async function getAllAreaProcess(areaId: string) {
 
 export async function getOneProcess(processId: string) {
   const foundProcess = await processRepositorie.getProcess(processId);
-  console.log(foundProcess);
   if (!foundProcess) throw NotFoundProcess();
   return foundProcess;
 }

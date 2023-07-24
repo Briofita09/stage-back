@@ -25,15 +25,16 @@ model Process {
   areaId        Int?
   order         Int?
   mainProcessId String?
-  xCoord        String?
-  yCoord        String?
+  xCoord        Int?
+  yCoord        Int?
+ 
   mainProcess   Process? @relation("SubProcesses", fields: [mainProcessId], references: [id])
-  edge          Edge[]
-
-
+  
+  
   area          Area? @relation(fields: [areaId], references: [id])
+  edge          Edge[]
   subProcess    Process[] @relation("SubProcesses")
-
+  externalLink  ExternalLink[]
 
   @@map("processes")
 }
@@ -45,7 +46,18 @@ model Edge {
   sourceHandle  String?
   target        String?
   targetHandle  String?
+  
   process       Process @relation(fields: [processId], references: [id])
 
   @@map("edges")
+}
+
+model ExternalLink {
+  id        Int @id @default(autoincrement())
+  link      String
+  processId String
+
+  process   Process @relation(fields: [processId], references: [id])
+
+  @@map("externalLinks")
 }

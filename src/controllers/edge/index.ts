@@ -18,6 +18,5 @@ export async function deleteEdges(req: Request, res: Response) {
 export async function getEdges(req: Request, res: Response) {
   const processId = req.params.processId;
   const edges = await edgeService.getEdges(processId);
-  console.log(edges);
   return res.status(200).json(edges);
 }
