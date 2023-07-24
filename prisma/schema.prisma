@@ -55,6 +55,7 @@ model Edge {
 model ExternalLink {
   id        Int @id @default(autoincrement())
   link      String
+  title     String
   processId String
 
   process   Process @relation(fields: [processId], references: [id])

@@ -5,6 +5,7 @@ export async function createExternalLink(processId: string, link: any) {
     data: {
       link: link.link,
       processId,
+      title: link.title,
     },
   });
 }
@@ -26,6 +27,7 @@ export async function updateExternalLink(id: string, link: any) {
     where: { id: Number(id) },
     data: {
       link: link.link,
+      title: link.title,
     },
   });
 }
