@@ -33,6 +33,10 @@ $ npm run dev
 ## 💻 Documentação
 
 [Documentação área](./Docs/AreaDocumentation.md)
+[Documentação processo](./Docs/ProcessDocumentation.md)
+[Documentação sub processo](./Docs/SubProcessDocumentation.md)
+[Documentação edges](./Docs/EdgeDocumentation.md)
+[Documentação links externos](./Docs/ExternalLinkDocumentation.md)
 
 ## 🔍 Testando
 

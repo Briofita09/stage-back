@@ -1,6 +1,4 @@
-## Áreas
-
-# Criar nova área
+# Área
 
 POST /area/
 
@@ -44,6 +42,9 @@ PUT /area/:id
 Params:
 
 id: string (required)
+
+Body:
+name: string (required)
 
 Retornos esperados:
 
